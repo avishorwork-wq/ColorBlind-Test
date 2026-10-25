@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Color Vision Live</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Color Vision Lab">
+<meta property="og:title" content="Color Vision Live: see the world through your result">
+<meta property="og:description" content="Apply your Color Vision Lab result to a live camera or video, right on your device. Nothing is uploaded.">
+<meta property="og:url" content="https://avishorwork-wq.github.io/ColorBlind-Test/live.html">
+<meta property="og:image" content="https://avishorwork-wq.github.io/ColorBlind-Test/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A glowing spectral orb split down the middle: typical color on the left, shifted color on the right, beside the words See color your way.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Vision Live: see the world through your result">
+<meta name="twitter:description" content="Apply your Color Vision Lab result to a live camera or video, right on your device.">
+<meta name="twitter:image" content="https://avishorwork-wq.github.io/ColorBlind-Test/og-image.png">
+<meta name="theme-color" content="#0b0b1f">
+<meta name="description" content="Apply your Color Vision Lab result to a live camera or video, on your device.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' xmlns:c2pa=%22http://c2pa.org/manifest%22><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpmN2FkZjM1MS03YzE3LTQzNWUtYWE2MS03YjFmMmEwYjI5ZDAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaJV0ElFMxkqMj8U%2Bla6XIBoAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxMmUwYzc4Ny1kYzcyLTQzM2MtOTgxMS1lZGRlMDY2MmQ2YmRscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoUaNOZFUfXezHDIW96sBqGQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggKf3BFiavEyNHnE56sntdH%2BEBCUa%2BYrhzelIAzDFZLCykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaMAAOfpbYW14K9jGHT9Wv70AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDmwGaB2/BuReMuO4LDnP5Z2oJhvezvI8/fjBbd7ReTTmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBh7Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmY3YWRmMzUxLTdjMTctNDM1ZS1hYTYxLTdiMWYyYTBiMjlkMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjA4NTk1N2NmLTJlN2QtNGY2Zi1iNzM4LTlmYjdhZGMwMDA4ZHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAp/cEWJq8TI0ecTnqye10f4QEJRr5iuHN6UgDMMVksLKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggrZm%2BxR%2B67fW2ddWVtFsYumNQOuvcNRUoeheAcy2Je0eiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggzZVzGPUaAHupHSKpVweOJ9wxKW5FyXb9L0ZOB768li90Y2xhaW1fZ2VuZXJhdG9yX2luZm%2BjZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj%2BOPEz5o%2BnMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1%2BUCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9%2B1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCvPrGV4jco1MtnP%2BzT/KDPBkvtR0ThhlWRUDQXN8Fjg5PFdH7AH55okkJ%2BFhJZWTXyXmJQquFiF4tvszBGBNjA=</c2pa:manifest></metadata><defs><linearGradient id='a' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%232b2575'/><stop offset='1' stop-color='%230b0b1f'/></linearGradient><linearGradient id='b' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23a29aff'/><stop offset='1' stop-color='%23625bff'/></linearGradient><linearGradient id='c' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%2372e8d1'/><stop offset='1' stop-color='%2337bca9'/></linearGradient><linearGradient id='d' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23ffc5dc'/><stop offset='1' stop-color='%23f17eb0'/></linearGradient></defs><rect width='64' height='64' rx='15' fill='url%28%23a%29'/><rect x='12' y='34' width='11' height='18' rx='4' fill='url%28%23b%29'/><rect x='26.5' y='21' width='11' height='31' rx='4' fill='url%28%23c%29'/><rect x='41' y='12' width='11' height='40' rx='4' fill='url%28%23d%29'/></svg>">
+<style>
+:root{--bg:#0b0b1f;--ac:#625bff;--tx:#f3f4ff;--mu:#a5abc2;--gl:rgba(255,255,255,.1);--bd:rgba(255,255,255,.2)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 -apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden;overscroll-behavior:none}
+#stage{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 30%,#221c58,#0b0b1f 70%)}
+#frame{position:relative;display:none;border-radius:14px;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.55);touch-action:none;user-select:none;-webkit-user-select:none}
+#cv{width:100%;height:100%;display:block;background:#000}
+#hd{position:absolute;z-index:2;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 14px rgba(0,0,0,.5);pointer-events:none}
+#hd:after{content:"↔";position:absolute;top:50%;left:50%;width:38px;height:38px;margin:-19px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.92);color:#2a2750;font-size:17px;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.lb{position:absolute;z-index:3;top:10px;padding:5px 10px;border-radius:999px;font:700 10px/1 -apple-system,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(15,14,40,.55);border:1px solid var(--bd);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
+.lb.l{left:10px}.lb.r{right:10px}
+#hud{position:fixed;z-index:5;left:0;right:0;bottom:0;display:none;gap:8px;flex-wrap:wrap;padding:10px 10px calc(10px + env(safe-area-inset-bottom));justify-content:center;background:linear-gradient(transparent,rgba(5,5,20,.7))}
+button,.btn{font:600 13px/1 -apple-system,"Segoe UI",sans-serif;color:var(--tx);white-space:nowrap;padding:12px 15px;border-radius:999px;border:1px solid var(--bd);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;display:inline-block;transition:transform .15s,background .15s}
+button:hover,.btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.2)}
+button:disabled,.btn.off{opacity:.4;pointer-events:none}
+button.pri{background:linear-gradient(135deg,#7a72ff,#625bff);border-color:rgba(255,255,255,.35);box-shadow:0 10px 28px rgba(98,91,255,.4)}
+#setup{position:fixed;z-index:10;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;background:rgba(8,8,24,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.card{width:100%;max-width:520px;margin:auto;padding:22px;border-radius:26px;border:1px solid var(--bd);background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:0 30px 80px rgba(0,0,0,.45)}
+h1{margin:0 0 4px;font-size:26px;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,#8a7aff,#3fcbb8,#ed9ac4);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{margin:18px 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a83ff}
+p{margin:0 0 8px;color:var(--mu)}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+textarea{width:100%;min-height:64px;resize:vertical;border-radius:14px;border:1px solid var(--bd);background:rgba(0,0,0,.25);color:var(--tx);padding:10px 12px;font:13px/1.4 ui-monospace,Menlo,monospace}
+#rs{color:#7ee8d3;min-height:20px}
+#er{color:#ff9aa8;min-height:20px}
+.sm{font-size:12px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="frame">
+    <canvas id="cv"></canvas><div id="hd"></div>
+    <span class="lb l">Original</span><span class="lb r">Your view</span>
+  </div>
+</div>
+<div id="hud">
+  <button id="bFlip">Flip camera</button>
+  <button id="bView">View: Split</button>
+  <button id="bModel">Model: Matched</button>
+  <button id="bSnap">Snapshot</button>
+  <button id="bFs">Fullscreen</button>
+  <button id="bRes">Result</button>
+</div>
+
+<div id="setup"><div class="card">
+  <h1>Color Vision <span>Live</span></h1>
+  <p>See a live camera or a video through your own color model. Everything runs on this device, and no video is uploaded.</p>
+  <h2>1. Load your result</h2>
+  <p class="sm">Use the result from the Color Vision Lab website: the downloaded result file, or the share link.</p>
+  <div class="row">
+    <button id="useSaved" style="display:none">Use saved result</button>
+    <label class="btn">Import result file<input id="rfile" type="file" accept=".json,.txt,application/json,text/plain" hidden></label>
+  </div>
+  <textarea id="paste" placeholder="…or paste your share link or result text here" spellcheck="false"></textarea>
+  <div class="row"><button id="usePaste">Use pasted result</button></div>
+  <p id="rs"></p>
+  <h2>2. Start</h2>
+  <div class="row">
+    <button id="start" class="pri" disabled>Start camera</button>
+    <label class="btn off" id="vfl">Open a video file<input id="vfile" type="file" accept="video/*" hidden></label>
+    <button id="back" style="display:none">Back to video</button>
+  </div>
+  <p id="er"></p>
+</div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+// ---- color model, same math as the Color Vision Lab ----
+const mm=(a,b)=>a.map(r=>[0,1,2].map(j=>r[0]*b[0][j]+r[1]*b[1][j]+r[2]*b[2][j]));
+function inv(m){const[[a,b,c],[d,e,f],[g,h,i]]=m;const A=e*i-f*h,B=f*g-d*i,C=d*h-e*g,D=1/(a*A+b*B+c*C);
+return[[A*D,(c*h-b*i)*D,(b*f-c*e)*D],[B*D,(a*i-c*g)*D,(c*d-a*f)*D],[C*D,(b*g-a*h)*D,(a*e-b*d)*D]]}
+const sens=(lm,w)=>{const x=lm/w,a=.8795+.0459*Math.exp(-Math.pow(lm-300,2)/11940);return 1/(Math.exp(69.7*(a-x))+Math.exp(28*(.922-x))+Math.exp(-14.9*(1.104-x))+.674)};
+const PR=[[620,17],[535,21],[455,11]];
+function Cmat(lL,lM){const rows=[lL,lM,420].map(()=>[0,0,0]);
+  for(let w=400;w<=700;w+=3)PR.forEach(([mu,sg],j)=>{const g=Math.exp(-Math.pow((w-mu)/sg,2)/2);[lL,lM,420].forEach((lm,i)=>rows[i][j]+=sens(lm,w)*g)});
+  return rows}
+const CNi=inv(Cmat(559,530));
+const MP=[[.152286,1.052583,-.204868],[.114503,.786281,.099216],[-.003882,-.048116,1.051998]],MD=[[.367322,.860646,-.227968],[.280085,.672501,.047413],[-.01182,.04294,.968881]];
+let rmode=0;
+function simMat(sl,sm){if(rmode){const e=Math.min(1,Math.max(sl,sm)/29);return(sl>=sm?MP:MD).map((r,i)=>r.map((v,j)=>(i==j?1-e:0)+e*v))}
+  const Cp=Cmat(559-sl,530+sm);return mm(CNi,Cp).map(r=>{const s=r[0]+r[1]+r[2];return r.map(v=>v/s)})}
+function alphaAt(cal,h){let nu=0,de=0;for(const[hc,t]of cal){let dh=Math.abs(h-hc);dh=Math.min(dh,360-dh);const w=Math.max(0,1-dh/30);nu+=w*t;de+=w}
+  if(!de)return 1;const m=Math.min(1,de);return m*nu/de+1-m}
+
+// ---- result import ----
+function clean(o){if(!o||typeof o.l!='number'||typeof o.m!='number')throw 0;const c=v=>Math.max(0,Math.min(30,+v||0));
+  return{l:c(o.l),m:c(o.m),G:Math.max(1.6,Math.min(2.8,+o.G||2.2)),
+    cal:(Array.isArray(o.cal)?o.cal:[]).filter(p=>Array.isArray(p)&&isFinite(p[0])&&isFinite(p[1])).slice(0,30).map(p=>[+p[0],Math.max(-.5,Math.min(1.5,+p[1]))])}}
+function parseResult(t){t=(t||'').trim();if(!t)throw 0;const i=t.indexOf('#r=');let o;
+  if(i>=0){let s=t.slice(i+3).trim();try{o=JSON.parse(atob(s))}catch(e){o=JSON.parse(atob(decodeURIComponent(s)))}}
+  else if(t[0]=='{')o=JSON.parse(t);else o=JSON.parse(atob(t));
+  return clean(o)}
+let res=null;
+function setResult(o,save){res=o;
+  if(save)try{localStorage.setItem('cvlv1',JSON.stringify(o))}catch(e){}
+  const mx=Math.max(o.l,o.m),top=o.l>=o.m?'Protan':'Deutan';
+  $('#rs').textContent=mx<4?'Result loaded: no meaningful red-green deficiency, so the view will look almost unchanged.':
+    'Result loaded: '+top+'-type red-green deficiency, '+(mx<12?'mild':mx<22?'moderate':mx<28?'strong':'dichromacy-like')+' (cone shift about '+Math.round(mx)+' nm)'+(o.cal.length?', with '+o.cal.length+' hue adjustments':'')+'.';
+  $('#start').disabled=false;$('#vfl').classList.remove('off');$('#er').textContent='';
+  uploadModel();if(started)draw()}
+const tryLoad=(txt,save)=>{try{setResult(parseResult(txt),save);return true}catch(e){$('#rs').textContent='';$('#er').textContent='That does not look like a Color Vision Lab result. Use the downloaded result file or the share link.';return false}};
+$('#rfile').onchange=async e=>{const f=e.target.files[0];if(f)tryLoad(await f.text(),true);e.target.value=''};
+$('#usePaste').onclick=()=>tryLoad($('#paste').value,true);
+(()=>{for(const k of ['cvlv1','cvl3']){try{const s=localStorage.getItem(k);if(s){const o=clean(JSON.parse(s));const b=$('#useSaved');b.style.display='';b.onclick=()=>{setResult(o,false)};return}}catch(e){}}})();
+if(location.hash.slice(0,3)=='#r=')tryLoad(location.hash,true);
+
+// ---- WebGL2 renderer ----
+const VS=`#version 300 es
+in vec2 p;out vec2 vUv;void main(){vUv=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
+const FS=`#version 300 es
+precision highp float;
+uniform sampler2D uV;uniform sampler2D uA;uniform mat3 uM;uniform float uG;uniform float uSp;uniform float uFlip;uniform float uCal;uniform int uMode;
+in vec2 vUv;out vec4 o;
+float hue(vec3 c){float mx=max(c.r,max(c.g,c.b));float d=mx-min(c.r,min(c.g,c.b));float h;
+ if(mx==c.r)h=mod((c.g-c.b)/d,6.);else if(mx==c.g)h=(c.b-c.r)/d+2.;else h=(c.r-c.g)/d+4.;
+ return mod(h*60.+360.,360.);}
+void main(){
+ vec2 uv=vec2(mix(vUv.x,1.-vUv.x,uFlip),vUv.y);
+ vec3 c=texture(uV,uv).rgb;vec3 r=pow(c,vec3(uG));vec3 s=uM*r;
+ if(uCal>.5){vec3 b=textureLod(uV,uv,3.).rgb;float dd=(max(b.r,max(b.g,b.b))-min(b.r,min(b.g,b.b)))*255.;
+  if(dd>=12.){float w=min(1.,(dd-12.)/30.);float a=texture(uA,vec2((hue(b)+.5)/361.,.5)).r;a=1.+(a-1.)*w;s=r+a*(s-r);}}
+ vec3 e=pow(clamp(s,0.,1.),vec3(1./uG));
+ vec3 out_=e;if(uMode==1)out_=c;if(uMode==2)out_=vUv.x<uSp?c:e;
+ o=vec4(out_,1.);}`;
+const cv=$('#cv'),frame=$('#frame'),stage=$('#stage'),video=document.createElement('video');
+video.playsInline=true;video.muted=true;video.setAttribute('playsinline','');
+let gl=null,prog,loc={},tex,atex,haveFrame=false,started=false,source='cam',facing='environment',flip=0,mode=2,sp=.5,vw=0,vh=0,gen=0,stream=null;
+function initGL(){if(gl)return;
+  gl=cv.getContext('webgl2',{antialias:false,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});
+  if(!gl)throw new Error('This browser does not support WebGL2, which the live view needs.');
+  const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o};
+  prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const a=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
+  ['uV','uA','uM','uG','uSp','uFlip','uCal','uMode'].forEach(n=>loc[n]=gl.getUniformLocation(prog,n));
+  tex=gl.createTexture();gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  atex=gl.createTexture();gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,atex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  gl.uniform1i(loc.uV,0);gl.uniform1i(loc.uA,1);gl.activeTexture(gl.TEXTURE0);
+  uploadModel()}
+function uploadModel(){if(!gl||!res)return;
+  const L=new Float32Array(361);for(let h=0;h<361;h++)L[h]=res.cal.length?alphaAt(res.cal,h%360):1;
+  gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,atex);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.R16F,361,1,0,gl.RED,gl.FLOAT,L);
+  const M=simMat(res.l,res.m);
+  gl.uniformMatrix3fv(loc.uM,false,new Float32Array([M[0][0],M[1][0],M[2][0],M[0][1],M[1][1],M[2][1],M[0][2],M[1][2],M[2][2]]));
+  gl.uniform1f(loc.uG,res.G);gl.uniform1f(loc.uCal,res.cal.length?1:0);gl.activeTexture(gl.TEXTURE0)}
+function draw(ov){if(!gl||!haveFrame)return;
+  gl.uniform1i(loc.uMode,ov==null?mode:ov);gl.uniform1f(loc.uSp,sp);gl.uniform1f(loc.uFlip,flip);gl.drawArrays(gl.TRIANGLE_STRIP,0,4)}
+function layout(){if(!vw)return;const W=stage.clientWidth,H=stage.clientHeight-$('#hud').offsetHeight-8,ar=vw/vh;let w=W,h=W/ar;if(h>H){h=H;w=H*ar}
+  frame.style.width=Math.max(50,w)+'px';frame.style.height=Math.max(50,h)+'px'}
+function sizeTo(){vw=video.videoWidth;vh=video.videoHeight;const s=Math.min(1,1920/Math.max(vw,vh));
+  cv.width=Math.round(vw*s);cv.height=Math.round(vh*s);gl.viewport(0,0,cv.width,cv.height);layout()}
+function loop(){const g=++gen;
+  const tick=()=>{if(g!==gen)return;
+    if(video.readyState>=2&&video.videoWidth){
+      if(video.videoWidth!==vw||video.videoHeight!==vh)sizeTo();
+      gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,video);gl.generateMipmap(gl.TEXTURE_2D);
+      haveFrame=true;draw()}
+    video.requestVideoFrameCallback?video.requestVideoFrameCallback(tick):requestAnimationFrame(tick)};
+  tick()}
+
+// ---- sources ----
+function stopSrc(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}video.srcObject=null;
+  if(video.src){URL.revokeObjectURL(video.src);video.removeAttribute('src');video.load()}haveFrame=false}
+function begin(){initGL();uploadModel();started=true;frame.style.display='block';$('#hud').style.display='flex';
+  $('#setup').style.display='none';$('#back').style.display='';$('#start').textContent='Restart camera';
+  $('#bFlip').style.display=source==='cam'?'':'none';sync();loop();layout()}
+function showErr(e){let m=e&&e.message?e.message:String(e);
+  if(e&&e.name==='NotAllowedError')m='Camera permission was denied. Allow camera access for this page in your browser settings, then try again.';
+  else if(e&&e.name==='NotFoundError')m='No camera was found on this device.';
+  else if(e&&e.name==='NotReadableError')m='The camera is in use by another app. Close it and try again.';
+  $('#er').textContent=m}
+async function startCam(){$('#er').textContent='';stopSrc();source='cam';
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)throw new Error('Camera access needs a secure page (https) and a browser that supports it.');
+  stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:facing},width:{ideal:1280},height:{ideal:720}},audio:false});
+  video.srcObject=stream;video.loop=false;await video.play();
+  const st=stream.getVideoTracks()[0].getSettings();flip=(st.facingMode?st.facingMode==='user':facing==='user')?1:0;begin()}
+$('#start').onclick=()=>startCam().catch(showErr);
+$('#bFlip').onclick=()=>{facing=facing==='user'?'environment':'user';startCam().catch(showErr)};
+$('#vfile').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
+  try{$('#er').textContent='';stopSrc();source='file';flip=0;video.src=URL.createObjectURL(f);video.loop=true;await video.play();begin()}catch(err){showErr(err)}};
+
+// ---- controls ----
+const VIEWS=['Split','Shifted','Original'];
+function sync(){$('#bView').textContent='View: '+VIEWS[[2,0,1].indexOf(mode)];$('#bModel').textContent='Model: '+(rmode?'Generic':'Matched');
+  $('#hd').style.display=mode===2?'':'none';document.querySelectorAll('.lb').forEach(l=>l.style.display=mode===2?'':'none');
+  $('#hd').style.left=sp*100+'%'}
+$('#bView').onclick=()=>{mode=mode===2?0:mode===0?1:2;sync();draw()};
+$('#bModel').onclick=()=>{rmode^=1;uploadModel();sync();draw()};
+function dl(b,n){const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1e3)}
+$('#bSnap').onclick=()=>{if(!haveFrame)return;draw(0);cv.toBlob(b=>{if(b)dl(b,'color-vision-snapshot.png');draw()})};
+if(document.documentElement.requestFullscreen)$('#bFs').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+else $('#bFs').style.display='none';
+$('#bRes').onclick=()=>{$('#setup').style.display='flex'};
+$('#back').onclick=()=>{$('#setup').style.display='none'};
+let drag=false;
+const mv=e=>{const r=frame.getBoundingClientRect();sp=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));$('#hd').style.left=sp*100+'%';draw()};
+frame.onpointerdown=e=>{if(mode!==2)return;drag=true;try{frame.setPointerCapture(e.pointerId)}catch(x){}mv(e)};
+frame.onpointermove=e=>{if(drag)mv(e)};frame.onpointerup=frame.onpointercancel=()=>{drag=false};
+new ResizeObserver(layout).observe(stage);new ResizeObserver(layout).observe($('#hud'));
+</script>
+</body>
+</html>
